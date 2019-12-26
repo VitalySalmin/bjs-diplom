@@ -170,7 +170,7 @@ async function registerNew(user) {
     if (userExists) {
         throw {
             code: 409,
-            message: 'User already exists',
+            message: 'User already exists, restart the server to be able to create it again',
         };
     }
     user.salt = cryptoRandomString(16);
