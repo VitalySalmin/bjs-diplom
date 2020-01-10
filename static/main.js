@@ -75,83 +75,6 @@ const Svetlana = new Profile({
                     password: 'the_same_as__has',
 });
  
-/*getStocks((err, data) => {
-  if(err) {
-    console.error('Error during getting stocks');
-    throw err;
-    } else {
-      const currencies = data;
-      console.log(currencies)
-      let rubToNetcoin = currencies[99].RUB_NETCOIN;
-      console.log("RUB to NETCOIN " + rubToNetcoin)
-      let rubsToAdd = 10000;
-      console.log("rubs to add " + rubsToAdd)
-      let netcoinsFromRubs = Math.floor(rubsToAdd*rubToNetcoin);
-      console.log("netcoins from rubs  " + netcoinsFromRubs)
-      console.log(typeof (rubsToAdd));
-      
-      Vitaly.addNewUser(Vitaly.user, (err, data) => {
-         if (err) {
-           console.error(`Error creating user ${Vitaly.user.name.firstName}`);
-         } else {
-           console.log(`User  ${Vitaly.user.name.firstName} has been successfully created`);
-           Vitaly.performLogin({
-                    username: Vitaly.user.username,
-                    password: Vitaly.user.password,
-                }, (err, data) => {
-                  if (err) {
-                    console.error(`An error occured I couldnt log you in, ${Vitaly.user.name.firstName}, sorry`);
-                   } else {
-                     console.log(`You're now logged in, ${Vitaly.user.name.firstName}`);
-                     Vitaly.addMoney({ currency: 'RUB', amount: rubsToAdd }, (err, data) => {
-                       if (err) {
-                         console.error('Error during adding money to Vitaly');
-                       } else {
-                         console.log(`Added ${rubsToAdd} rubles to Vitaly`); 
-                         Vitaly.convertMoney({
-                            fromCurrency: "RUB",
-                            targetCurrency: "NETCOIN",
-                            targetAmount: 1
-                         }, (err, data) => {
-                           if (err) {
-                             console.error('Oops.. I couldnt perform the requested conversion, please check you have enough money and that your request has no mistakes');
-                             Svetlana.addNewUser(Svetlana.user, (err, data) => {
-                               if (err) {
-                                 console.error(`Error creating user ${Svetlana.user.name.firstName}`);
-                               } else {
-                                 console.log(`User  ${Svetlana.user.name.firstName} has been successfully created`);
-                                 Svetlana.performLogin({username:Svetlana.user.username, password:Svetlana.user.password,}, (err, data) => {
-                                   if (err) {
-                                     console.error(`An error occured I couldnt log you in, ${Svetlana.user.name.firstName}, sorry`);
-                                   } else {
-                                     console.log(`You're now logged in, ${Svetlana.user.name.firstName}`);
-                                     Vitaly.transferMoney({ to: 'Svetlana', amount: 1 }, (err, data) => {
-                                        if (err) {
-                                          console.error('Failed to transfer');
-                                        } else {
-                                          console.log(`Transferred successfully`);
-                                        }
-                                      })
-                                    }
-                                  })
-                                }
-                              })
-                            }else {
-                              console.log(`Done. You have additional ${targetAmount} ${targetCurrensy}s now`);
-                            }
-                          })
-                        }
-                      })
-                    }
-                  })
-                  }
-                })
-              }
-          });
-*/
-
-
-
 
 getStocks((err, data) => {
   if(err) {
@@ -209,18 +132,18 @@ getStocks((err, data) => {
                                         } else {
                                           console.log(`Transferred successfully`);
                                         }
-                                      })
-                                    }
-                                  })
-                                }
+                                    })
+                                 }
                               })
                             }
-                          })
-                        }
-                      })
-                    }
-                  })
-                  }
+                         })
+                       }
+                     })
+                   }
                 })
               }
-          });
+           })
+         }
+      })
+   }
+});
