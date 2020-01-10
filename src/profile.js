@@ -45,7 +45,7 @@ const ProfileSchema = new mongoose.Schema({
         },
         NETCOIN: {
             type: Number,
-            default: 10000,
+            default: 1000,
         },
     },
 });
@@ -88,11 +88,13 @@ ProfileSchema.methods.transfer = async function({ to, amount }) {
     }
 
     const isEnoughMoney = this.checkAmount('NETCOIN');
+    
+    
 
     if (!isEnoughMoney) {
         throw {
             code: 400,
-            message: 'Not enough money',
+            message: `Not enough money ${this.checkAmount('NETCOIN')}`,
         };
     } else {
         this.wallet.NETCOIN = Number(this.wallet.NETCOIN) - Number(amount);
@@ -148,7 +150,7 @@ ProfileSchema.methods.convertCurrency = async function({
     if (!isEnoughMoney) {
         throw {
             code: 406,
-            message: 'Not enough money to complete the operation',
+            message: `Not enough money to complete the operation ${fromCurrencyAmount - shouldPay}`,
         };
     }
 
@@ -157,6 +159,8 @@ ProfileSchema.methods.convertCurrency = async function({
 
     const savedProfile = await this.save();
     return {
+        message: `there are ${this.checkAmount(targetCurrency)} of ${targetCurrency} now`,
+        message:  `NETCOINS: ${this.checkAmount('NETCOIN')}`,
         name: savedProfile.name,
         wallet: savedProfile.wallet,
         username: savedProfile.username,

@@ -63,19 +63,19 @@ function getStocks(callback) {
 
 
 
-const Vanya = new Profile({
-                    username: 'Vanya',
-                    name: { firstName: 'Vanya', lastName: 'Chernyshev' },
+const Vitaly = new Profile({
+                    username: 'Vitaly',
+                    name: { firstName: 'Vitaly', lastName: 'Chernyshev' },
                     password: 'can_be_guessed',
 });
 
-const Maria = new Profile({
-                    username: 'Maria',
-                    name: { firstName: 'Maria', lastName: 'Chernysheva' },
+const Svetlana = new Profile({
+                    username: 'Svetlana',
+                    name: { firstName: 'Svetlana', lastName: 'Chernysheva' },
                     password: 'the_same_as__has',
 });
  
-getStocks((err, data) => {
+/*getStocks((err, data) => {
   if(err) {
     console.error('Error during getting stocks');
     throw err;
@@ -90,42 +90,42 @@ getStocks((err, data) => {
       console.log("netcoins from rubs  " + netcoinsFromRubs)
       console.log(typeof (rubsToAdd));
       
-      Vanya.addNewUser(Vanya.user, (err, data) => {
+      Vitaly.addNewUser(Vitaly.user, (err, data) => {
          if (err) {
-           console.error(`Error creating user ${Vanya.user.name.firstName}`);
+           console.error(`Error creating user ${Vitaly.user.name.firstName}`);
          } else {
-           console.log(`User  ${Vanya.user.name.firstName} has been successfully created`);
-           Vanya.performLogin({
-                    username: Vanya.user.username,
-                    password: Vanya.user.password,
+           console.log(`User  ${Vitaly.user.name.firstName} has been successfully created`);
+           Vitaly.performLogin({
+                    username: Vitaly.user.username,
+                    password: Vitaly.user.password,
                 }, (err, data) => {
                   if (err) {
-                    console.error(`An error occured I couldnt log you in, ${Vanya.user.name.firstName}, sorry`);
+                    console.error(`An error occured I couldnt log you in, ${Vitaly.user.name.firstName}, sorry`);
                    } else {
-                     console.log(`You're now logged in, ${Vanya.user.name.firstName}`);
-                     Vanya.addMoney({ currency: 'RUB', amount: rubsToAdd }, (err, data) => {
+                     console.log(`You're now logged in, ${Vitaly.user.name.firstName}`);
+                     Vitaly.addMoney({ currency: 'RUB', amount: rubsToAdd }, (err, data) => {
                        if (err) {
-                         console.error('Error during adding money to Vanya');
+                         console.error('Error during adding money to Vitaly');
                        } else {
-                         console.log(`Added ${rubsToAdd} rubles to Vanya`); 
-                         Vanya.convertMoney({
+                         console.log(`Added ${rubsToAdd} rubles to Vitaly`); 
+                         Vitaly.convertMoney({
                             fromCurrency: "RUB",
                             targetCurrency: "NETCOIN",
                             targetAmount: 1
                          }, (err, data) => {
                            if (err) {
                              console.error('Oops.. I couldnt perform the requested conversion, please check you have enough money and that your request has no mistakes');
-                             Maria.addNewUser(Maria.user, (err, data) => {
+                             Svetlana.addNewUser(Svetlana.user, (err, data) => {
                                if (err) {
-                                 console.error(`Error creating user ${Maria.user.name.firstName}`);
+                                 console.error(`Error creating user ${Svetlana.user.name.firstName}`);
                                } else {
-                                 console.log(`User  ${Maria.user.name.firstName} has been successfully created`);
-                                 Maria.performLogin({username:Maria.user.username, password:Maria.user.password,}, (err, data) => {
+                                 console.log(`User  ${Svetlana.user.name.firstName} has been successfully created`);
+                                 Svetlana.performLogin({username:Svetlana.user.username, password:Svetlana.user.password,}, (err, data) => {
                                    if (err) {
-                                     console.error(`An error occured I couldnt log you in, ${Maria.user.name.firstName}, sorry`);
+                                     console.error(`An error occured I couldnt log you in, ${Svetlana.user.name.firstName}, sorry`);
                                    } else {
-                                     console.log(`You're now logged in, ${Maria.user.name.firstName}`);
-                                     Vanya.transferMoney({ to: 'Maria', amount: 1 }, (err, data) => {
+                                     console.log(`You're now logged in, ${Svetlana.user.name.firstName}`);
+                                     Vitaly.transferMoney({ to: 'Svetlana', amount: 1 }, (err, data) => {
                                         if (err) {
                                           console.error('Failed to transfer');
                                         } else {
@@ -148,85 +148,62 @@ getStocks((err, data) => {
                 })
               }
           });
+*/
 
 
 
 
-
-/*getStocks((err, data) => {
+getStocks((err, data) => {
   if(err) {
     console.error('Error during getting stocks');
     throw err;
     } else {
       const currencies = data;
-      console.log(currencies)
       let rubToNetcoin = currencies[99].RUB_NETCOIN;
       console.log("RUB to NETCOIN " + rubToNetcoin)
       let rubsToAdd = 10000;
       console.log("rubs to add " + rubsToAdd)
       let netcoinsFromRubs = Math.floor(rubsToAdd*rubToNetcoin);
       console.log("netcoins from rubs  " + netcoinsFromRubs)
-      console.log(typeof (rubsToAdd));
       
-      Vanya.addNewUser(Vanya.user, (err, data) => {
+      Vitaly.addNewUser(Vitaly.user, (err, data) => {
          if (err) {
-           console.error(`Error creating user ${Vanya.user.name.firstName}`);
+           console.error(`Error creating user ${Vitaly.user.name.firstName}`);
          } else {
-           console.log(`User  ${Vanya.user.name.firstName} has been successfully created`);
-           Vanya.performLogin({
-                    username: Vanya.user.username,
-                    password: Vanya.user.password,
+           console.log(`User  ${Vitaly.user.name.firstName} has been successfully created`);
+           Vitaly.performLogin({
+                    username: Vitaly.user.username,
+                    password: Vitaly.user.password,
                 }, (err, data) => {
                   if (err) {
-                    console.error(`An error occured I couldnt log you in, ${Vanya.user.name.firstName}, sorry`);
+                    console.error(`An error occured I couldnt log you in, ${Vitaly.user.name.firstName}, sorry`);
                    } else {
-                     console.log(`You're now logged in, ${Vanya.user.name.firstName}`);
-                     Vanya.addMoney({ currency: 'RUB', amount: rubsToAdd }, (err, data) => {
+                     console.log(`You're now logged in, ${Vitaly.user.name.firstName}`);
+                     Vitaly.addMoney({ currency: 'RUB', amount: rubsToAdd }, (err, data) => {
                        if (err) {
-                         console.error('Error during adding money to Vanya');
+                         console.error('Error during adding money to Vitaly');
                        } else {
-                         console.log(`Added ${rubsToAdd} rubles to Vanya`); 
-                         Vanya.convertMoney({
+                         console.log(`Added ${rubsToAdd} rubles to Vitaly`); 
+                         Vitaly.convertMoney({
                             fromCurrency: "RUB",
                             targetCurrency: "NETCOIN",
-                            targetAmount: 1
+                            targetAmount: netcoinsFromRubs
                          }, (err, data) => {
                            if (err) {
                              console.error('Oops.. I couldnt perform the requested conversion, please check you have enough money and that your request has no mistakes');
-                             Maria.addNewUser(Maria.user, (err, data) => {
+                            } else {
+                              console.log(`Done. You have additional ${netcoinsFromRubs} NETCOINS now`);
+                              Svetlana.addNewUser(Svetlana.user, (err, data) => {
                                if (err) {
-                                 console.error(`Error creating user ${Maria.user.name.firstName}`);
+                                 console.error(`Error creating user ${Svetlana.user.name.firstName}`);
                                } else {
-                                 console.log(`User  ${Maria.user.name.firstName} has been successfully created`);
-                                 Maria.performLogin({username:Maria.user.username, password:Maria.user.password,}, (err, data) => {
+                                 console.log(`User  ${Svetlana.user.name.firstName} has been successfully created`);
+                                 Svetlana.performLogin({username:Svetlana.user.username, password:Svetlana.user.password,}, (err, data) => {
                                    if (err) {
-                                     console.error(`An error occured I couldnt log you in, ${Maria.user.name.firstName}, sorry`);
+                                     console.error(`An error occured I couldnt log you in, ${Svetlana.user.name.firstName}, sorry`);
                                    } else {
-                                     console.log(`You're now logged in, ${Maria.user.name.firstName}`);
-                                     Vanya.transferMoney({ to: 'Maria', amount: 1 }, (err, data) => {
-                                        if (err) {
-                                          console.error('Failed to transfer');
-                                        } else {
-                                          console.log(`Transferred successfully`);
-                                        }
-                                      })
-                                    }
-                                  })
-                                }
-                              })
-                            }else {
-                              console.log(`Done. You have additional ${targetAmount} ${targetCurrensy}s now`);
-                              Maria.addNewUser(Maria.user, (err, data) => {
-                               if (err) {
-                                 console.error(`Error creating user ${Maria.user.name.firstName}`);
-                               } else {
-                                 console.log(`User  ${Maria.user.name.firstName} has been successfully created`);
-                                 Maria.performLogin({username:Maria.user.username, password:Maria.user.password,}, (err, data) => {
-                                   if (err) {
-                                     console.error(`An error occured I couldnt log you in, ${Maria.user.name.firstName}, sorry`);
-                                   } else {
-                                     console.log(`You're now logged in, ${Maria.user.name.firstName}`);
-                                     Vanya.transferMoney({ to: 'Maria', amount: 1 }, (err, data) => {
+                                     console.log(`You're now logged in, ${Svetlana.user.name.firstName}`);
+                                     Vitaly.transferMoney({ to: 'Svetlana', amount: netcoinsFromRubs}, (err, data) => {
                                         if (err) {
                                           console.error('Failed to transfer');
                                         } else {
@@ -246,4 +223,4 @@ getStocks((err, data) => {
                   }
                 })
               }
-          });*/
+          });
